@@ -8,7 +8,7 @@ const Page = async ({
     projectId: string;
   };
 }) => {
-  const { projectId } = await params;
+  const { projectId } = params;
   if (!projectId) return <div>Invalid Project ID</div>;
   if (!process.env.WIDGET_URL) return <div>Missing WIDGET_URL</div>;
   return (
