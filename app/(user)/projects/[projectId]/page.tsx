@@ -13,21 +13,19 @@ const Page = async ({
     projectId: string;
   };
 }) => {
-  const projectId = Number(params.projectId);
-
-  if (!projectId) return <div>Invalid Project ID</div>;
+  if (!params.projectId) return <div>Invalid Project ID</div>;
 
   const projectsList = await db.query.projects.findMany({
-    where: eq(projects.id, projectId),
+    where: eq(projects.id, parseInt(params.projectId)),
     with: {
       feedbacks: true,
     },
   });
 
-  // Ensure there's at least one project
-  if (!projectsList || projectsList.length === 0) {
-    return <div>Project not found</div>;
-  }
+  // // Ensure there's at least one project
+  // if (!projectsList || projectsList.length === 0) {
+  //   return <div>Project not found</div>;
+  // }
 
   // Extract the first project
   const project = projectsList[0];
@@ -61,7 +59,7 @@ const Page = async ({
             </Link>
           ) : null}
           <Link
-            href={`/projects/${projectId}/instructions`}
+            href={`/projects/${params.projectId}/instructions`}
             className=" text-indigo-700 flex items-center mt-2"
           >
             <Code className="size-4 mr-1" />
