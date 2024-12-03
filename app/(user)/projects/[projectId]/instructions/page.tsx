@@ -6,7 +6,7 @@ const Page = async ({
 }: {
   params: {
     projectId: number;
-  } & Promise<any>;
+  };
 }) => {
   const { projectId } = params;
   if (!projectId) return <div>Invalid Project ID</div>;
