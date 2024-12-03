@@ -14,7 +14,7 @@ import Link from "next/link";
 import React, { useState } from "react";
 
 const Menu = () => {
-  const [open, setOpen] = useState<Boolean>(false);
+  const [open, setOpen] = useState<boolean>(false);
   return (
     <DropdownMenu open={open} onOpenChange={setOpen}>
       <DropdownMenuTrigger>
