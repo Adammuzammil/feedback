@@ -13,7 +13,8 @@ const Page = async ({
     projectId: string;
   };
 }) => {
-  const { projectId } = params;
+  const { projectId } = await params;
+
   if (!projectId) return <div>Invalid Project ID</div>;
 
   const projectsList = await db.query.projects.findMany({
