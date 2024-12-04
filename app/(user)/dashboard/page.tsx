@@ -28,6 +28,3 @@ const Dashboard = async () => {
 };
 
 export default Dashboard;
-
-//roxie sinner
-//Palacios
